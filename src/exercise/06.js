@@ -1,7 +1,7 @@
 // Basic Forms
 // http://localhost:3000/isolated/exercise/06.js
 
-import * as React from 'react'
+import React, {useRef} from 'react'
 
 function UsernameForm({onSubmitUsername}) {
   // 🐨 add a submit event handler here (`handleSubmit`).
@@ -20,17 +20,19 @@ function UsernameForm({onSubmitUsername}) {
   // 🐨 make sure to associate the label to the input.
   // to do so, set the value of 'htmlFor' prop of the label to the id of input
 
+  const inputRef = useRef('')
+
   const onSubmitHandler = e => {
     e.preventDefault()
 
-    onSubmitUsername(e.target.elements.userNameInput.value)
+    onSubmitUsername(inputRef.current.value)
   }
 
   return (
     <form onSubmit={onSubmitHandler}>
       <div>
         <label htmlFor="userNameInput">Username:</label>
-        <input type="text" id="userNameInput" />
+        <input type="text" id="userNameInput" ref={inputRef} />
       </div>
       <button type="submit">Submit</button>
     </form>
