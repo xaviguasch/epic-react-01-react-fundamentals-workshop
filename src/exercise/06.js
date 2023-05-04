@@ -28,7 +28,8 @@ function UsernameForm({onSubmitUsername}) {
   const onSubmitHandler = e => {
     e.preventDefault()
 
-    onSubmitUsername(inputRef.current.value)
+    // onSubmitUsername(inputRef.current.value)
+    onSubmitUsername(inputValue)
   }
 
   // const handleChangeInput = e => {
